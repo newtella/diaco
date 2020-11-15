@@ -1,5 +1,13 @@
 @extends('layouts.app')
+
+@section('body-class', 'profile-page')
 @section('content')
+
+<div class="header header-filter" style="background-image: url('/img/examples/city.jpg');"></div>
+
+<div class="main main-raised">
+    <div class="profile-content">
+
 <div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -18,7 +26,7 @@
         </div>
     @endif
    
-    <table class="table table-bordered">
+    <table class="table">
         <tr>
             <th>No</th>
             <th>Nombre</th>
@@ -56,3 +64,8 @@
     {!! $branches->links() !!}
 </div>
 @endsection
+
+</div>
+
+</div>
+</div>

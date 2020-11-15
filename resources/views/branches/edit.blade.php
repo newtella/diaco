@@ -1,17 +1,24 @@
 @extends('layouts.app')
-   
+
+@section('body-class', 'profile-page')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Editar Sucursal</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('branches.index') }}"> Back</a>
+
+<div class="header header-filter" style="background-image: url('/img/examples/city.jpg');"></div>
+
+<div class="main main-raised">
+    <div class="profile-content">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Editar Sucursal</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="{{ route('branches.index') }}"> Back</a>
+                </div>
             </div>
         </div>
-    </div>
+    
    
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -27,21 +34,40 @@
     <form action="{{ route('branches.update',$branch->id) }}" method="POST">
         @csrf
         @method('PUT')
-   
+        
+
         <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputEmail4">Nombre</label>
-                <input type="text" name="name" value="{{ $branch->name }}" class="form-control" placeholder="Nombre">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputPassword4">Telefono</label>
-                <input type="text" name="phone" value="{{ $branch->phone }}" class="form-control" placeholder="Telefono">
-            </div>
+    <diV class="col-sm-7">
+        <div class="form-group label-floating">
+         <label class="control-label">Nombre</label>
+    
+        <input type="text" name="name" value="{{ $branch->name }}" class="form-control" placeholder="Nombre">
+    
+         </div>
+    </diV>
+
+    <div class="col-sm-5">
+         <div class="form-group label-floating">
+         <label class="control-label">Telefono</label>
+    
+          <input type="text" name="phone" value="{{ $branch->phone }}" class="form-control" placeholder="Telefono">
+    
         </div>
-        <div class="form-group">
-            <label for="inputAddress">Direccion</label>
-            <input type="text" name="address" value="{{ $branch->address }}" class="form-control" placeholder="Direccion">
+    </div>
+
+</div>
+
+<div class="form-row">
+   
+
+    <div class="col-sm-12">
+        <div class="form-group label-floating">
+          <label class="control-label">Direccion</label>
+          <input type="text" name="address" value="{{ $branch->address }}" class="form-control" placeholder="Direccion">
         </div>
+    </div>
+</div>
+
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="inputState">Region</label>
@@ -54,6 +80,8 @@
                   </select>
                 </div>
             </div>
+
+            
             <div class="form-group col-md-3">
                 <label for="inputState">Departamento</label>
                 <div>
@@ -91,11 +119,15 @@
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </div>
+    
+    
    
     </form>
+    </div>
 </div>
+
 <!--Catalogos-->
+<script src="{{asset ('js/jquery.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/queries.js') }}" ></script>
 <script>
     $(document).ready(function(){
@@ -111,3 +143,7 @@
     });
 </script>
 @endsection
+
+
+
+
