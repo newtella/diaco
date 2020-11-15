@@ -19,6 +19,7 @@ function departmentelements() {
         var str = $("#region_id").val();
         $('#department_id').empty();
         $('#municipality_id').empty();
+        $('#branch_id').empty();
         $.ajax({
             url: location.origin + '/dropdown-departments/' + str,
             type: 'GET',
@@ -41,6 +42,8 @@ function departmentelements() {
 //carga el listado de municipalidades
 function municipalityelements() {
     $("#department_id").change(function() {
+        $('#municipality_id').empty();
+        $('#shop_id').empty();
         var str = $("#department_id").val();
         $.ajax({
             'url': location.origin + '/dropdown-municipalities/' + str,
@@ -60,6 +63,34 @@ function municipalityelements() {
                         '<option>' + "Sin registros" + '</option>'
                     );
                     $("#municipality_id").append(nomunicipality);
+                }
+            }
+        });
+    })
+};
+//carga el listado de Comercios
+function branchelements() {
+    $("#municipality_id").change(function() {
+        $('#branch_id').empty();
+        var str = $("#municipality_id").val();
+        $.ajax({
+            'url': location.origin + '/dropdown-branches/' + str,
+            'type': 'GET',
+            success: function(response) {
+                if (response != 0) {
+                    $("#branch_id").empty();
+                    $.each(response, function(i, branches) {
+                        var branch = $(
+                            '<option  value="' + branches.id + '">' + branches.name + '</option>'
+                        );
+                        $("#branch_id").append(branch);
+                    });
+                } else {
+                    $("#branch_id").empty();
+                    var nobranch = $(
+                        '<option>' + "Sin registros" + '</option>'
+                    );
+                    $("#branch_id").append(nobranch);
                 }
             }
         });

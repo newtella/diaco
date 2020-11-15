@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Region;
 use App\Department;
 use App\Municipality;
+use App\Branch;
 
 class ComboBoxController extends Controller
 {
@@ -26,6 +27,13 @@ class ComboBoxController extends Controller
 
         $municipalities = Municipality::where('department_id', $id)->get();
         return $municipalities;
+
+    }
+
+    public function branch($id){
+
+        $branches = Branch::where('municipality_id', $id)->get();
+        return $branches;
 
     }
 }

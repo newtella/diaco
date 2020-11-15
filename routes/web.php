@@ -14,14 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('complains.search');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('branches','BranchController');
-Route::resource('Complains','ComplainController');
+Route::resource('complains','ComplainController');
 Route::get('/dropdown-regions','ComboBoxController@region');
 Route::get('/dropdown-departments/{id}','ComboBoxController@department');
 Route::get('/dropdown-municipalities/{id}','ComboBoxController@municipality');
+Route::get('/dropdown-branches/{id}','ComboBoxController@branch');
+Route::get('search','ComplainController@index')->name('complains.search');
+Route::post('search','ComplainController@search')->name('complains.search');
