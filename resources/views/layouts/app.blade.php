@@ -6,7 +6,7 @@
 	<link rel="icon" type="image/png" href="../assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Sign Up Page - Material Kit by Creative Tim</title>
+	<title>Diaco Web App</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -18,11 +18,20 @@
 	<!-- CSS Files -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet"/>
+	
+	
+	@yield('css')
+	
+
+
+	
+
+
 
 </head>
 
 <body class="@yield('body-class')">
-	<nav class="navbar navbar-transparent navbar-absolute">
+	<nav class="navbar navbar-default navbar-absolute">
     	<div class="container">
         	<!-- Brand and toggle get grouped for better mobile display -->
         	<div class="navbar-header">
@@ -47,23 +56,34 @@
 								</li>
 							@endif
 						@else
-							<li class="nav-item dropdown">
-								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-									{{ Auth::user()->name }}
-								</a>
 
-								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="{{ route('logout') }}"
+						
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sucursales <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="{{ route('branches.index') }}">Ver Sucursales</a></li>
+									<li><a class="dropdown-item" href="{{ route('branches.create') }}">Crear Sucursal</a></li>
+									<li class="divider"></li>
+									<li><a class="dropdown-item" href="{{ route('vistaQuejas') }}">Quejas por Sucursal</a></li>
+
+								</ul>
+							</li>
+
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }} <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="{{ route('logout') }}"
 										onclick="event.preventDefault();
 														document.getElementById('logout-form').submit();">
 										{{ __('Cerrar Sesión') }}
-									</a>
-
+									</a></li>
 									<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 										@csrf
 									</form>
-								</div>
+
+								</ul>
 							</li>
+
 						@endguest
 		           <!--  <li>
 		                <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
@@ -98,7 +118,7 @@
 	<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/material.min.js') }}"></script>
 	
-
+@yield('scripts')
 
 
 

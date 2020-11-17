@@ -56,7 +56,7 @@ class ComplainController extends Controller
         $complain = Complain::create($merged->all());
 
         return redirect()->route('complains.index')
-        ->with('success','Queja Creada Correctamente. El no. de Queja es el: ' .$complain->id.
+        ->with('success','Queja Creada Correctamente. El no. de Queja es el: ' .$complain->document.
         ' Guardelo en un lugar seguro, si despues desea ver el estado de su queja puede colocarlo en la caja de busqueda');
     }
 
@@ -116,6 +116,9 @@ class ComplainController extends Controller
         return redirect()->route('complains.index')
                         ->with('success','Queja Eliminada Correctamente');
     }
+
+
+   
 
     public function search(Request $request)
     {

@@ -43,7 +43,7 @@ function departmentelements() {
 function municipalityelements() {
     $("#department_id").change(function() {
         $('#municipality_id').empty();
-        $('#shop_id').empty();
+
         var str = $("#department_id").val();
         $.ajax({
             'url': location.origin + '/dropdown-municipalities/' + str,
