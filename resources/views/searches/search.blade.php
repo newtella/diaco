@@ -7,19 +7,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-            @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <h5>{{ $message }}</h5>
-                        </div>
-                    @endif
                 <div class="card card-signup">
-                    @if ($message = Session::get('error'))
-                        <div class="alert alert-danger">
-                            <p>{{ $message }}</p>
-                        </div>
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <h5>{{ $message }}</h5>
+                    </div>
                     @endif
-                    <form class="form" action="{{ route('complains.search') }}" method="POST">
-                    @csrf
+                    @if ($message = Session::get('error'))
+                    <div class="alert alert-danger">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @endif
+                    <form class="form" action="{{ route('searches.search') }}" method="POST">
+                        @csrf
                         <div class="header header-primary text-center">
                             <h4>Buscar Solicitud</h4>
                         </div>
@@ -33,8 +33,8 @@
                             </div>
                         </div>
                         <div class="footer text-center">
-                        <button type="submit" class="btn btn-primary"> {{ __('Buscar') }}</button>
-                        <a class="btn btn-success" href="{{ route('complains.create') }}">Crear Queja</a>
+                            <button type="submit" class="btn btn-primary"> {{ __('Buscar') }}</button>
+                            <a class="btn btn-success" href="{{ route('searches.create') }}">Crear Queja</a>
                         </div>
                     </form>
                 </div>

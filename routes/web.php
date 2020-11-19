@@ -1,5 +1,6 @@
 <?php
 
+use App\Resolution;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('complains.search');
+    return redirect()->route('searches.search');
 });
 
 Auth::routes();
@@ -22,17 +23,21 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/conteo','homeController@countComplainToChart');
 
-
+//Rutas
+Route::get('resolution/{complain}', 'ResolutionController@create')->name('resolutions.create')->middleware('auth');
+Route::get('search','SearchController@index')->name('searches.search');
+Route::post('search','SearchController@search')->name('searches.search');
+Route::resource('resolutions', 'ResolutionController', ['except' => ['create']])->middleware('auth');
 Route::resource('branches','BranchController');
-Route::resource('complains','ComplainController');
+Route::resource('searches','SearchController');
+Route::resource('complains','ComplainController')->middleware('auth');
 
-
+//Consultas
 Route::get('/dropdown-regions','ComboBoxController@region');
 Route::get('/dropdown-departments/{id}','ComboBoxController@department');
 Route::get('/dropdown-municipalities/{id}','ComboBoxController@municipality');
 Route::get('/dropdown-branches/{id}','ComboBoxController@branch');
-Route::get('search','ComplainController@index')->name('complains.search');
-Route::post('search','ComplainController@search')->name('complains.search');
+
 
 Route::get('/vista','VistasController@vistaConteoQuejas')->name('datatable');
 Route::get('/data','VistasController@index')->name('vistaQuejas');
