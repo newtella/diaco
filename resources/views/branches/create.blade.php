@@ -128,18 +128,8 @@
             </select>
         </div>
     </div>
-    <div class="form-group col-md-3">
-        <label for="inputState">Comercio</label>
-        <div>
-            <select class="form-control" name="shop_id" id="shop_id">
-            <option>Seleccionar</option>
-            @foreach($shops as $shop)
-                <option value="{{$shop->id}}">{{$shop->name}}</option>
-            @endforeach
-            </select>
-        </div>
-    </div>
 </div>
+
 
 <div class="text-center">
 <button type="submit" class="btn btn-primary">Guardar</button>

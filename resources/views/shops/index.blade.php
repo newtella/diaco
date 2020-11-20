@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Resoluciones</h2>
+                        <h2>Comercios</h2>
                     </div>
                 </div>
             </div>
@@ -26,23 +26,21 @@
             <table class="table">
                 <tr>
                     <th>No</th>
-                    <th>Fecha</th>
-                    <th>Documento</th>
-                    <th>Sucursal</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Registro</th>
+                  
                     <th width="280px">Acciones</th>
                 </tr>
-                @foreach ($resolutions as $resolution)
+                @foreach ($shops as $shop)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $resolution->date }}</td>
-                    <td>{{ $resolution->complain->document }}</td>
-                    <td>{{ $resolution->complain->branch->name }}</td>
+                    <td>{{ $shop->name }}</td>
+                    <td>{{ $shop->created_at }}</td>
                     <td>
-                        <form action="{{ route('resolutions.destroy',$resolution->id) }}" method="POST">
+                        <form action="{{ route('shops.destroy',$shop->id) }}" method="POST">
 
-                            <a class="btn btn-info" href="{{ route('resolutions.show',$resolution->complain_id) }}">Detalle</a>
 
-                            <a class="btn btn-primary" href="{{ route('resolutions.edit',$resolution->id) }}">Edit</a>
+                            <a class="btn btn-primary" href="{{ route('shops.edit',$shop->id) }}">Edit</a>
 
                             @csrf
                             @method('DELETE')
@@ -55,7 +53,7 @@
                 @endforeach
             </table>
 
-            {!! $resolutions->links() !!}
+            {!! $shops->links() !!}
         </div>
         @endsection
 

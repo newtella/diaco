@@ -30,6 +30,7 @@ Route::post('search','SearchController@search')->name('searches.search');
 Route::resource('resolutions', 'ResolutionController', ['except' => ['create']])->middleware('auth');
 Route::resource('branches','BranchController');
 Route::resource('searches','SearchController');
+Route::resource('shops','ShopController');
 Route::resource('complains','ComplainController')->middleware('auth');
 
 //Consultas

@@ -43,7 +43,7 @@
     </div>
 
     <footer class="footer">
-        <div class="container">
+        <!-- <div class="container">
             <nav class="pull-left">
                 <ul>
                     <li>
@@ -71,7 +71,7 @@
             <div class="copyright pull-right">
                 &copy; 2016, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
             </div>
-        </div>
+        </div> -->
     </footer>
 
 </div>

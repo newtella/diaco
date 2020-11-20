@@ -7,6 +7,7 @@ use App\Complain;
 use App\Resolution;
 use App\Status;
 use Carbon\Carbon;
+use DB;
 
 class ResolutionController extends Controller
 {
@@ -61,9 +62,12 @@ class ResolutionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request)
     {
-        //
+        $resolution = Resolution::where('complain_id', $request)->first();
+        return view('resolutions.show',compact('resolution'));
+
+
     }
 
     /**
@@ -72,9 +76,11 @@ class ResolutionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Resolution $resolution)
     {
-        //
+        /* return view('complains.show', compact('complain'));
+        $resolution = Resolution::where('complain_id', $request)->first(); */
+        return view('resolutions.edit', compact('resolution'));
     }
 
     /**
@@ -84,9 +90,16 @@ class ResolutionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Resolution $resolution)
     {
-        //
+        $request->validate([
+            'detail' => 'required',
+        ]);
+
+        $resolution->update($request->all());
+  
+        return redirect()->route('resolutions.index')
+                        ->with('success','Resolución Actualizada Correctamente');
     }
 
     /**
@@ -95,8 +108,11 @@ class ResolutionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Resolution $resolution)
     {
-        //
+        $resolution->delete();
+  
+        return redirect()->route('resolutions.index')
+                        ->with('success','Resolución Eliminada Correctamente');
     }
 }

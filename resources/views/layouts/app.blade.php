@@ -42,7 +42,14 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">Diaco App</a>
+				<a href="/">
+           <div class="logo-container">
+                <div class="logo">
+                    <img src="/img/logodiaco.png" width="150px" height="50px" alt="Creative Tim Logo" class="img-rounded img-responsive img-raised">
+                </div>
+            </div>
+      <div class="ripple-container"></div></a>
+			<!-- 	<a class="navbar-brand" href="/"><img src="/img/GobiernoLogo.jpg" width="545px" height="120px" alt=""></a> -->
 			</div>
 
 			<div class="collapse navbar-collapse" id="navigation-example">
@@ -58,32 +65,53 @@
 					@endif
 					@else
 
-
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sucursales <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="material-icons">add_business</i>
+						Comercios <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="{{ route('shops.index') }}">Ver Comercios</a></li>
+							<li class="divider"></li>
+							<li><a class="dropdown-item" href="{{ route('shops.create') }}">Registrar Comercio</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="material-icons">storefront</i>
+						Sucursales <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="{{ route('branches.index') }}">Ver Sucursales</a></li>
-							<li><a class="dropdown-item" href="{{ route('branches.create') }}">Crear Sucursal</a></li>
 							<li class="divider"></li>
-							<li><a class="dropdown-item" href="{{ route('vistaQuejas') }}">Quejas por Sucursal</a></li>
-
+							<li><a class="dropdown-item" href="{{ route('branches.create') }}">Crear Sucursal</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Quejas <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="material-icons">assignment</i>
+						Quejas y Resoluciones <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="{{ route('complains.index') }}">Ver Quejas</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resoluciones <b class="caret"></b></a>
-						<ul class="dropdown-menu">
+							<li class="divider"></li>
 							<li><a class="dropdown-item" href="{{ route('resolutions.index') }}">Ver Resoluciones</a></li>
 						</ul>
 					</li>
+				
 
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }} <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="material-icons">leaderboard</i>
+						Reporteria <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="{{ route('vistaQuejas') }}">Quejas por Sucursal</a></li>
+						<li class="divider"></li>
+						<li><a class="dropdown-item" href="{{ route('home') }}">Quejas por Status</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="material-icons">account_circle</i>
+						{{ Auth::user()->name }} <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
 														document.getElementById('logout-form').submit();">
@@ -124,6 +152,8 @@
 
 
 </body>
+<footer class="footer">
+</footer>
 <!--   Core JS Files   -->
 <script src="{{asset ('js/jquery.js') }}" type="text/javascript"></script>
 <script src="{{asset ('js/jquery.min.js') }}" type="text/javascript"></script>

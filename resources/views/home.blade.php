@@ -19,13 +19,13 @@
 
                     {{ __('You are logged in!') }}
 
-               <div>{{ $conteoNuevos }},{{ $conteoRevision }},{{ $conteoCerrados }}
+               <div>
                </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                     <canvas id="chartProgress"></canvas>
-                     </div>
+              
+                <div class="card">
+                <canvas id="bar-chart" width="400" height="250"></canvas>
+              
                 </div>
 
 </div>
@@ -38,59 +38,38 @@
 
             </div>
         </div>
+        
     </div>
+    <footer class="footer">
+    </footer>
 </div>
+
 
 @endsection
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script>
-var myChartCircle = new Chart('chartProgress', {
-  type: 'doughnut',
-  data: {
-    datasets: [{
-      label: 'Africa / Population (millions)',
-      percent: 68,
-      backgroundColor: ['#5283ff']
-    }]
-  },
-  plugins: [{
-      beforeInit: (chart) => {
-        const dataset = chart.data.datasets[0];
-        chart.data.labels = [dataset.label];
-        dataset.data = [dataset.percent, 100 - dataset.percent];
-      }
+
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["Quejas Nuevas", "Quejas en Revisión", "Quejas Cerradas"],
+      datasets: [
+        {
+          label: "Quejas (Total)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [{{ $conteoNuevos }},{{ $conteoRevision }},{{ $conteoCerrados }}]
+        }
+      ]
     },
-    {
-      beforeDraw: (chart) => {
-        var width = chart.chart.width,
-          height = chart.chart.height,
-          ctx = chart.chart.ctx;
-        ctx.restore();
-        var fontSize = (height / 150).toFixed(2);
-        ctx.font = fontSize + "em sans-serif";
-        ctx.fillStyle = "#9b9b9b";
-        ctx.textBaseline = "middle";
-        var text = chart.data.datasets[0].percent + "%",
-          textX = Math.round((width - ctx.measureText(text).width) / 2),
-          textY = height / 2;
-        ctx.fillText(text, textX, textY);
-        ctx.save();
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Conteo de Quejas segun Status'
       }
     }
-  ],
-  options: {
-    maintainAspectRatio: false,
-    cutoutPercentage: 85,
-    rotation: Math.PI / 2,
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      filter: tooltipItem => tooltipItem.index == 0
-    }
-  }
 });
 </script>
 
