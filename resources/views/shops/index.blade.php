@@ -14,6 +14,9 @@
                     <div class="pull-left">
                         <h2>Comercios</h2>
                     </div>
+                    <div class="pull-right mb-2">
+                    <a class="btn btn-success" href="{{ route('shops.create') }}">Nuevo Comercio</a>
+                    </div>
                 </div>
             </div>
 
