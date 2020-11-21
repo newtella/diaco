@@ -3,8 +3,8 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/logodiaco.png')}}">
+	<link rel="icon" type="image/png" href="{{asset('img/logodiaco.png')}}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>Diaco Web App</title>
@@ -45,7 +45,7 @@
 				<a href="/">
            <div class="logo-container">
                 <div class="logo">
-                    <img src="/img/logodiaco.png" width="150px" height="50px" alt="Creative Tim Logo" class="img-rounded img-responsive img-raised">
+                    <img src="{{asset('img/logodiaco.png')}}" width="150px" height="50px" alt="Creative Tim Logo" class="img-rounded img-responsive img-raised">
                 </div>
             </div>
       <div class="ripple-container"></div></a>
