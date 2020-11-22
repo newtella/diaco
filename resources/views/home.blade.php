@@ -68,7 +68,16 @@ new Chart(document.getElementById("bar-chart"), {
       title: {
         display: true,
         text: 'Conteo de Quejas segun Status'
-      }
+      },
+      scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                    
+                }
+            }]
+        }
     }
 });
 </script>
