@@ -41,7 +41,7 @@
                     <td>{{ $complain->branch->name }}</td>
                     <td>{{ $complain->status->name }}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{ route('complains.edit',$complain->id) }}">Estado</a>
+                        <a class="btn btn-primary" href="{{ route('complains.edit',$complain->id) }}">Actualizar Estado</a>
                     </td>
                 </tr>
                 @endforeach

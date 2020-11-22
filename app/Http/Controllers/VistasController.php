@@ -11,7 +11,7 @@ use App\Shop;
 use App\Complain;
 use DB;
 use DataTables;
-
+use Carbon\Carbon;
 
 class VistasController extends Controller
 {
@@ -29,5 +29,46 @@ class VistasController extends Controller
         ->get();
         return Datatables::of($vista)->make(true);
     }
+
+    public function vistaSinQuejas(){
+
+        $vsinquejas = DB::table('vsin_quejas')
+        ->select('Sucursal', 'Comercio','Municipio','Departamento','Region')
+        ->orderBy('Region', 'desc')
+        ->get();
+        return Datatables::of($vsinquejas)->make(true);
+
+    }
+
+    public function toViewSQ(){
+
+        return view('complains.vSinQuejas');
+
+    }
+
+    public function vistaQuejas(){
+
+        $vquejas = DB::table('vquejas_region_anio')
+        ->select('Documento', 'fecha','Razón','Solicitud','Sucursal','Telefono','Direccion','Comercio','Municipio','Departamento','Region')
+        ->orderBy('Fecha', 'desc')
+        ->get();
+        return Datatables::of($vquejas)
+        ->editColumn('fecha', function ($data) {
+            return $data->fecha ? with(new Carbon($data->fecha))->format('d/m/Y') : '';
+        })
+        ->make(true);
+
+    }
+
+    public function toViewQA(){
+
+        return view('complains.vQuejasRegionAnio');
+
+    }
+
+
+
+
+
     //
 }

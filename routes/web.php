@@ -42,3 +42,14 @@ Route::get('/dropdown-branches/{id}','ComboBoxController@branch');
 
 Route::get('/vista','VistasController@vistaConteoQuejas')->name('datatable');
 Route::get('/data','VistasController@index')->name('vistaQuejas');
+
+
+Route::get('/vquejas','VistasController@vistaQuejas')->name('vquejas');
+Route::get('/vreport_quejas','VistasController@toViewQA')->name('vreport_quejas');
+
+Route::get('/vsinquejas','VistasController@vistaSinQuejas')->name('vsinquejas');
+Route::get('/vreport_sinquejas','VistasController@toViewSQ')->name('vreport_sinquejas');
+
+
+
+

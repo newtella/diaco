@@ -105,6 +105,10 @@
 						<li><a class="dropdown-item" href="{{ route('vistaQuejas') }}">Quejas por Sucursal</a></li>
 						<li class="divider"></li>
 						<li><a class="dropdown-item" href="{{ route('home') }}">Quejas por Status</a></li>
+						<li class="divider"></li>
+						<li><a class="dropdown-item" href="{{ route('vreport_sinquejas') }}">Sucursales sin reportes</a></li>
+						<li class="divider"></li>
+						<li><a class="dropdown-item" href="{{ route('vreport_quejas') }}">Listado de Quejas</a></li>
 						</ul>
 					</li>
 

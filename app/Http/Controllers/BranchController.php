@@ -45,7 +45,7 @@ class BranchController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|numeric|digits:8',
             'address' => 'required',
             'municipality_id' => 'required',
             'shop_id' => 'required',
@@ -102,7 +102,7 @@ class BranchController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|numeric|digits:8',
             'address' => 'required',
             'municipality_id' => 'required',
             'shop_id' => 'required',
