@@ -19,33 +19,42 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <strong>Nombre:</strong>
+                        <strong>No. de Documento:</strong>
                         {{ $complain->document }}
                     </div>
                 </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <strong>Fecha:</strong>
+                        {{ $fecha }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <strong>Sucursal:</strong>
+                        {{ $complain->branch->name }}
+                    </div>
+                </div>
+
+
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Telefono:</strong>
+                        <strong>Razón Descrita:</strong>
                         {{ $complain->reason }}
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Direccion:</strong>
+                        <strong>Solicitud:</strong>
                         {{ $complain->request}}
                     </div>
                 </div>
+                
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Comercio:</strong>
-                        {{ $complain->branch->name }}
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Estado:</strong>
+                        <strong>Estado de Solicitud:</strong>
                         {{ $complain->status->name}}
                     </div>
                 </div>
@@ -62,12 +71,12 @@
                 @else
                 <tr>
                     <th>No</th>
-                    <th>Date</th>
-                    <th>Detail</th>
+                    <th>Fecha de Resolución</th>
+                    <th>Detalle</th>
                 </tr>
                 <tr>
                     <td>{{ $complain->resolution->id }}</td>
-                    <td>{{ $complain->resolution->date }}</td>
+                    <td>{{ $fecharesolucion }}</td>
                     <td>{{ $complain->resolution->detail }}</td>
                 </tr>
 

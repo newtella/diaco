@@ -62,10 +62,15 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $complain = Complain::With('resolution')->where('document', $request->document)->first();
+        
+        
         if ($complain == null) {
             return redirect()->route('searches.index')
                 ->with('error', 'No se encontro Ninguna Queja con ese numero.');
         }
-        return view('searches.show', compact('complain'));
+        
+        $fecha= $complain->date ? with(new Carbon($complain->date))->format('d/m/Y') : '';
+        $fecharesolucion = $complain->resolution->date ? with(new Carbon($complain->resolution->date))->format('d/m/Y') : '';
+        return view('searches.show', compact('complain','fecha','fecharesolucion'));
     }
 }
