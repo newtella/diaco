@@ -70,7 +70,7 @@ class SearchController extends Controller
         }
         
         $fecha= $complain->date ? with(new Carbon($complain->date))->format('d/m/Y') : '';
-        $fecharesolucion = $complain->resolution->date ? with(new Carbon($complain->resolution->date))->format('d/m/Y') : '';
-        return view('searches.show', compact('complain','fecha','fecharesolucion'));
+        
+        return view('searches.show', compact('complain','fecha'));
     }
 }

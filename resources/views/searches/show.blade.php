@@ -28,6 +28,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <strong>Fecha:</strong>
+                       
                         {{ $fecha }}
                     </div>
                 </div>
@@ -76,7 +77,7 @@
                 </tr>
                 <tr>
                     <td>{{ $complain->resolution->id }}</td>
-                    <td>{{ $fecharesolucion }}</td>
+                    <td>{{ $complain->resolution->date }}</td>
                     <td>{{ $complain->resolution->detail }}</td>
                 </tr>
 
