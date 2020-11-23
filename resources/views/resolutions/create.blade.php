@@ -53,7 +53,7 @@
                 <diV class="col-sm-3">
                     <div class="form-group label-floating">
                         <label class="control-label">Documento</label>
-                        <input type="text" name="document" value="{{ $complain->id }}" class="form-control" disabled>
+                        <input type="text" name="document" value="{{ $complain->document }}" class="form-control" disabled>
                     </div>
                 </diV>
                 <div class="col-sm-3">
