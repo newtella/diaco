@@ -11,7 +11,7 @@
 
 ##### ¿What´s Laravel Diaco?
 
-Complain's Web App that allow to the user submit a request for a problem with services or end product.
+Complaint's Web App that allow to the user submit a request for a problem with services or end product.
 
 ##### ¿What do you need?
 
