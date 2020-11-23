@@ -69,8 +69,6 @@ class SearchController extends Controller
                 ->with('error', 'No se encontro Ninguna Queja con ese numero.');
         }
         
-        $fecha= $complain->date ? with(new Carbon($complain->date))->format('d/m/Y') : '';
-        
-        return view('searches.show', compact('complain','fecha'));
+        return view('searches.show', compact('complain'));
     }
 }

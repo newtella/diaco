@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <strong>Fecha:</strong>
                        
-                        {{ $fecha }}
+                        {{ $complain->date }}
                     </div>
                 </div>
                 <div class="col-sm-6">
