@@ -52,6 +52,10 @@ class ResolutionController extends Controller
         $merged = $request->merge(['date' => $date, 'complain_id' => $request->complain_id]);
         Resolution::create($merged->all());
 
+        $complain = Complain::where('id', $request->complain_id)->first();
+        $complain->status_id = "3";
+        $complain->save();
+
         return redirect()->route('resolutions.index')
             ->with('success', 'Resolucion Creada Correctamente.');
     }
