@@ -71,7 +71,7 @@
                 <div class="col-sm-3">
                     <div class="form-group label-floating">
                         <label class="control-label" for="inputState">Estado</label>
-                        <select class="form-control" name="status_id">
+                        <select class="form-control" name="status_id" disabled>
                             <option value="{{$complain->status_id}}" selected>{{$complain->status->name}}</option>
                             @foreach($statuses as $status)
                             <option value="{{$status->id}}">{{$status->name}}</option>
