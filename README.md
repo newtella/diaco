@@ -9,23 +9,30 @@
 
 ## Laravel Diaco
 
-##### ¿What´s Laravel Diaco?
+##### What´s Laravel Diaco?
 
-Complain's Web App that allow to the user submit a request for a problem with services or end product.
+- Complaint's Web App that allow to the user submit a request for a problem with services or end product.
 
-##### ¿What do you need?
+- Aplicacion Web para quejas que permite al usuario enviar una solicitud por un problema con servicios o producto final.
+
+##### What do you need?
 
 - Php version 7
 - Composer
 - Laragon
 
-##### ¿How to use it?
+##### How to use it?
 
 - Fork the Repo (optional)
 - Clone the Repo
 - Run Composer Install
 - Run Migrations
 
+## Screenshots
+
+![diaco](public/img/Screenshot_diaco.png "Welcome")
+
+![diaco](public/img/Screenshot2_diaco.png "Complaints")
 
 ## About Laravel
 
