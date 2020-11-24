@@ -53,3 +53,5 @@ Route::get('/vreport_sinquejas','VistasController@toViewSQ')->name('vreport_sinq
 
 
 
+
+

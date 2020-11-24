@@ -82,11 +82,13 @@
   $(function () {
     
     var table = $('.yajra-datatable').DataTable({
+        
         dom: 'Bfrtip',
         buttons: [
             
             'copy', 'csv', {
             extend: 'excelHtml5',
+            
             autoFilter: true,
             sheetName: 'Exported data'
         } , 'print'

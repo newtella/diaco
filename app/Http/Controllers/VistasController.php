@@ -12,6 +12,7 @@ use App\Complain;
 use DB;
 use DataTables;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class VistasController extends Controller
 {
@@ -64,7 +65,10 @@ class VistasController extends Controller
 
         return view('complains.vQuejasRegionAnio');
 
+        
     }
+
+    
 
 
 

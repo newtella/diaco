@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Complain;
 use App\Shop;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class SearchController extends Controller
 {
@@ -44,14 +45,30 @@ class SearchController extends Controller
             'branch_id' => 'required',
         ]);
 
-        $document = Complain::all()->last();
         $date = Carbon::today()->toDateString();
-        if ($document == null) {
+        
+        $uniqid = Str::random(8);
+        $prefix = 'QID-';
+        $concat = strtoupper($uniqid);
+        $document = $prefix.''.$concat;
+        
+        while(Complain::where('document', $document)->exists()) {
+            $uniqid = Str::random(8);
+            $prefix = 'QID-';
+            $concat = strtoupper($uniqid);
+            $document = $prefix.''.$concat;
+
+            $merged = $request->merge(['document' =>  $document, 'date' => $date, 'status_id' => 1]);
+        }
+        $merged = $request->merge(['document' =>  $document, 'date' => $date, 'status_id' => 1]);
+       
+       
+       /*  if ($document == null) {
             $document = 1;
             $merged = $request->merge(['document' =>  $document, 'date' => $date, 'status_id' => 1]);
         } else {
             $merged = $request->merge(['document' =>  $document->document + 1, 'date' => $date, 'status_id' => 1]);
-        }
+        } */
 
         $complain = Complain::create($merged->all());
 
